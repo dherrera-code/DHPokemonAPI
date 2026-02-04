@@ -51,7 +51,7 @@
       </div>
     </nav> -->
   </header>
-
+  <!-- Here is the main body within one major grid! -->
   <section class="main-grid gap-x-9 gap-y-9 mx-auto mb-5" style="width: 1128px;">
     <!-- Display the main pokemon searched! -->
     <div class="white-box p-3 col-start-1" style="height: 321px; width: 470px;">
@@ -82,11 +82,43 @@
       <div id="thirdEvol"></div>
     </div>
 
-    <div class="col-start-2 row-start-1">
-      <div class="white-box">
-        <h2>Base Stats</h2>
+    <!-- Base Stats and Abilities -->
+    <div class="col-start-2 row-start-1 grid grid-cols-2">
+      <div class="white-box p-3" style="width: 302px;">
+        <h2 class="pb-3" style="font-size: 24px;">Base Stats</h2>
+        <div class="grid grid-cols-2">
+          <div class="pe-1">
+            <p class="text-end">HP: </p>
+            <p class="text-end">Attack: </p>
+            <p class="text-end">Defense: </p>
+            <p class="text-end">Special Attack: </p>
+            <p class="text-end">Special Defense: </p>
+            <p class="text-end">Speed: </p>
+          </div>
+          <div class="col-start-2">
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+          </div>
+        </div>
+        <h3 class="mt-auto" id="totalPokeStat">Total Stats: 325</h3>
+      </div>
+
+      <div class="white-box ms-auto p-3" style="width: 302px;">
+        <h2 class="pb-3" style="font-size: 24px;">Abilities</h2>
+        <p id="hiddenAbility">Hidden Ability: Anticipation</p>
+        <p id="abilitites">Run Away, Adaptability</p>
       </div>
     </div>
+
+    <!-- All Moves: -->
+    <div class="white-box"></div>
+
+    <!-- Locations: -->
+
 
   </section>
 
