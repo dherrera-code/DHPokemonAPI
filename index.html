@@ -1,16 +1,46 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/output.css">
-    <title>Pokemon API</title>
-  </head>
-  <body>
-    <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-    <script type="module" src="./Scripts/app.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/output.css">
+  <link rel="stylesheet" href="./src/style.css">
+  <title>Pokemon API</title>
+</head>
+
+<body>
+  <!-- Header will contain the search bar and the toggler for the fav sidebar -->
+  <header class="mt-5">
+
+
+    <form class="max-w-md mx-auto ">
+      <div class="relative">
+        <input style="height: 50px;" type="search" id="default-search"
+          class="block w-full p-4 text-sm border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Enter a Name or Pokedex number!" required />
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+        </div>
+
+      </div>
+    </form>
+
+
+
+  </header>
+
+  <!-- <input type="text" id="search-navbar"
+                class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Search..."> -->
+
+
+
+
+
+
+  <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+  <script type="module" src="./Scripts/app.js"></script>
+</body>
+
 </html>
