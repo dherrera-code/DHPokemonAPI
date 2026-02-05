@@ -56,7 +56,7 @@
     <!-- Display the main pokemon searched! -->
     <div class="white-box p-3 col-start-1" style="height: 321px; width: 470px;">
       <div class="flex">
-        <h2 class="pe-4" style="font-size: 40px;">Eevee</h2>
+        <h1 class="pe-4" style="font-size: 40px;">Eevee</h1>
         <img src="./Assets/Star 1.png" alt="Toggle Favorites Star!">
         <img class="ms-auto" src="./Assets/audio 1.png" alt="Toggle Pokemon Cries!">
       </div>
@@ -74,18 +74,23 @@
 
     <!-- Display the evolution line! -->
     <div class="white-box col-start-1" style="height: 478px; width: 470px;">
-      <h1 class="text-center" style="font-size: 24px;">Evolution</h1>
+      <h2 class="text-center">Evolution</h2>
       <div id="firstEvol"></div>
-
-      <div id="secondEvol"></div>
-
-      <div id="thirdEvol"></div>
+      <!-- <img class="mx-auto" src="./Assets/DownArrow.svg" alt="Next Evolution"> -->
+      <div id="secondEvol" class="flex flex-wrap justify-evenly"></div>
+      <!-- <img class="mx-auto" src="./Assets/DownArrow.svg" alt="Next Evolution"> -->
+      <div id="thirdEvol" class="flex flex-wrap justify-evenly">
+        <!-- <div>
+          <img style="height: 100px;" class="mx-auto" src="./Assets/133Eevee.png" alt="Pkmon">
+          <p class="text-center">eevee</p>
+        </div> -->
+      </div>
     </div>
 
     <!-- Base Stats and Abilities -->
     <div class="col-start-2 row-start-1 grid grid-cols-2">
-      <div class="white-box p-3" style="width: 302px;">
-        <h2 class="pb-3" style="font-size: 24px;">Base Stats</h2>
+      <div class="white-box p-3.5" style="width: 302px;">
+        <h2 class="pb-3">Base Stats</h2>
         <div class="grid grid-cols-2">
           <div class="pe-1">
             <p class="text-end">HP: </p>
@@ -107,22 +112,38 @@
         <h3 class="mt-18" id="totalPokeStat">Total Stats: 325</h3>
       </div>
 
-      <div class="white-box ms-auto p-3" style="width: 302px;">
-        <h2 class="pb-3" style="font-size: 24px;">Abilities</h2>
+      <div class="white-box ms-auto p-3.5" style="width: 302px;">
+        <h2 class="pb-3">Abilities</h2>
         <p id="hiddenAbility">Hidden Ability: Anticipation</p>
         <p id="abilitites">Run Away, Adaptability</p>
       </div>
     </div>
 
+    <!-- grid section for all moves and locations -->
     <div class="col-start-2">
-
       <!-- All Moves: -->
-      <div class="white-box">
-        <h1>all moves</h1>
+      <div class="white-box mb-8 p-3.5" style="height: 278px;">
+        <h2 class="pb-1">All Moves: </h2>
+        <!-- Insert scrollable content! -->
+        <p id="displayAllMoves" class="overflow-y-auto" style="height: 185px;">
+          pay-day, double-kick, sand-attack, headbutt, tackle, body-slam, take-down, double-edge, growl, hyper-beam,
+          strength, thunderbolt, thunder, dig, toxic, mimic, double-team, reflect, bide, swift, skull-bash, rest,
+          substitute, snore, curse, protect, mud-slap, detect, endure, charm, swagger, attract, sleep-talk, return,
+          frustration, iron-tail, hidden-power, rain-dance, sunny-day, psych-up, shadow-ball, rock-smash, facade,
+          helping-hand, wish, magic-coat, yawn, secret-power, covet, fake-tears, tickle, signal-beam, aerial-ace,
+          iron-defense, last-resort, natural-gift, captivate, round, echoed-voice, stored-power, incinerate, retaliate,
+          work-up, confide, baby-doll-eyes, play-rough, power-up-punch, laser-focus, baton-pass, encore, copycat,
+          muddy-water, tearful-look, weather-ball, hyper-voice, quick-attack, bite
+        </p>
       </div>
-      
+
       <!-- Locations: -->
-      <div class="white-box">Locations</div>
+      <div class="white-box p-3.5 " style="height: 168px;">
+        <h2 class="pb-1.5">Locations: </h2>
+        <p class="overflow-y-auto" style="height: 90px;">castelia city area, kalos route 10 area, celadon city celadon
+          mansion, goldenrod city bills house, hearthome city area, alola route 4 area, alola route 6 north, alola route
+          6 south, paniola ranch area.</p>
+      </div>
     </div>
 
   </section>
