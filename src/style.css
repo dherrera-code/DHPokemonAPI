@@ -2,6 +2,9 @@ body {
     background-image: url(../Assets/Pokeball-bg.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
