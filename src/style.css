@@ -8,7 +8,11 @@ body {
     font-variation-settings:
         "wdth" 100;
 }
-
+@media (min-width: 800px){
+    .search-bar{
+        min-width: none;
+    }
+}
 .search-bar {
     min-width: 1128px;
 }
@@ -36,8 +40,23 @@ form {
 .white-box h2 {
     font-size: 24px;
 }
+.favorite-sidebar{
+    background-color: #212121E6;
+    height: 100%;
+    width: 293px;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    color: whitesmoke;
+}
+.favorite-sidebar li{
+    padding-bottom: 8px;
+    font-size: 24px;
+}
 
 .main-grid {
     display: grid;
     grid-template-columns: 470px 1fr;
+    max-width: 1128px;
 }
