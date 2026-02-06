@@ -16,15 +16,16 @@
 
 <body>
   <!-- Header will contain the search bar and the toggler for the fav sidebar -->
-  <header class="my-7 lg:w-full md:w-75% flex justify-center align-middle">
 
-    <div class="" style="position: absolute; left: 0;">
+  <header class="my-7 place-items-center">
+
+    <div class="">
       <img id="toggleFavSidebarBtn" src="./Assets/Toggle Icon.png" class="ps-8 pt-1" alt="Toggle Favorite Pokemon.">
     </div>
 
-    <form class="mx-auto search-bar flex justify-center" style="height: 70px;">
+    <form class="" style="height: 70px;">
       <input type="search" id="default-search"
-        class=" block w-full p-4 text-sm border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+        class="w-full p-4 text-sm border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
         placeholder="Enter a Name or Pokedex number!" required />
       <img id="randomPokeBtn" type="submit" class="iconBtn my-auto pe-5" src="./Assets/Shuffle-icon.png"
         alt="Randomize Pokemon Search!">
@@ -32,8 +33,9 @@
         alt="Search for Pokemon Button!">
     </form>
   </header>
-<!-- Toggled Sidebar to view favorites! -->
-  <section id="favoritesSidebar" class="favorite-sidebar hidden" style="height: 100%;" >
+  
+  <!-- Toggled Sidebar to view favorites! -->
+  <section id="favoritesSidebar" class="favorite-sidebar hidden" style="height: 100%;">
     <div class="flex flex-row">
       <h1 class="p-5" style="font-size: 40px;">Favorites: </h1>
       <img id="hideFavSidebarBtn" src="./Assets/XIcon.svg" alt="Hide Favorites Sidebar?">
@@ -53,14 +55,16 @@
   </section>
 
   <!-- Here is the main body within one major grid! -->
-  <section class="grid grid-cols-1 lg:grid-cols-[minmax(250px,470px)_1fr] gap-x-9 gap-y-9 mx-auto mb-5" style="max-width: 1128px;">
+  <section class="grid lg:grid-cols-[minmax(300px,470px)_1fr] gap-x-9 gap-y-9 mx-auto mb-5 place-items-center"
+    style="max-width: 1128px;">
     <!-- Display the main pokemon searched! -->
-    <div class="white-box p-3 lg:col-start-1" style="height: 321px; width: 470px;">
+    <div class="white-box p-3" style="height: 321px; width: 470px;">
       <div class="flex">
         <h1 class="pe-4" style="font-size: 40px;">Eevee</h1>
         <img id="favPokemonStar" src="./Assets/Star 1.png" alt="Toggle Favorites Star!">
         <img id="pokemonCriesBtn" class="ms-auto" src="./Assets/audio 1.png" alt="Toggle Pokemon Cries!">
-        <audio id="pokemonCries" src="https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/133.ogg"></audio>
+        <audio id="pokemonCries"
+          src="https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/133.ogg"></audio>
       </div>
 
       <div class="grid grid-cols-2 mb-9">
@@ -75,7 +79,7 @@
     </div>
 
     <!-- Display the evolution line! -->
-    <div class="white-box lg:col-start-1" style="height: 478px; width: 470px;">
+    <div class="white-box md:col-start-1" style="height: 478px; width: 470px;">
       <h2 class="text-center">Evolution</h2>
       <div id="firstEvol"></div>
       <!-- <img class="mx-auto" src="./Assets/DownArrow.svg" alt="Next Evolution"> -->
@@ -90,37 +94,40 @@
     </div>
 
     <!-- Base Stats and Abilities -->
-    <div class="lg:col-start-2 lg:row-start-1 lg:grid grid-cols-2">
-      <div class="white-box p-3.5" style="width: 302px;">
-        <h2 class="pb-3">Base Stats</h2>
-        <div class="grid grid-cols-2">
-          <div class="pe-1">
-            <p class="text-end">HP: </p>
-            <p class="text-end">Attack: </p>
-            <p class="text-end">Defense: </p>
-            <p class="text-end">Special Attack: </p>
-            <p class="text-end">Special Defense: </p>
-            <p class="text-end">Speed: </p>
-          </div>
-          <div class="col-start-2">
-            <p>0</p>
-            <p>0</p>
-            <p>0</p>
-            <p>0</p>
-            <p>0</p>
-            <p>0</p>
-          </div>
-        </div>
-        <h3 class="mt-18" id="totalPokeStat">Total Stats: 325</h3>
-      </div>
+    <!-- <div class="lg:col-start-2 lg:row-start-1 lg:grid grid-cols-2"> -->
+    <div class="md:col-start-2 md:row-start-1">
+      <div class="grid gap-2 md:grid-cols-2">
 
-      <div class="white-box ms-auto p-3.5" style="width: 302px;">
+
+        <div class="white-box p-3.5" style="max-width: 302px;">
+          <h2 class="pb-3">Base Stats</h2>
+          <div class="grid grid-cols-2">
+            <div class="pe-1">
+              <p class="text-end">HP: </p>
+              <p class="text-end">Attack: </p>
+              <p class="text-end">Defense: </p>
+              <p class="text-end">Sp. Attack: </p>
+              <p class="text-end">Sp. Defense: </p>
+              <p class="text-end">Speed: </p>
+            </div>
+            <div class="col-start-2">
+              <p>0</p>
+              <p>0</p>
+              <p>0</p>
+              <p>0</p>
+              <p>0</p>
+              <p>0</p>
+            </div>
+          </div>
+          <h3 class="mt-18" id="totalPokeStat">Total Stats: 325</h3>
+        </div>
+      
+      <div class="white-box  lg:ms-auto p-3.5" style="max-width: 302px;">
         <h2 class="pb-3">Abilities</h2>
-        <p id="hiddenAbility">Hidden Ability: Anticipation</p>
-        <p id="abilitites">Run Away, Adaptability</p>
+        <p id="abilities">Hidden Ability: Anticipation Other Abilities: Run Away, Adaptability</p>
       </div>
     </div>
-
+</div>
     <!-- grid section for all moves and locations -->
     <div class="lg:col-start-2">
       <!-- All Moves: -->
