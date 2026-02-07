@@ -44,7 +44,7 @@
   </section>
 
   <!-- Here is the main body within one major grid! -->
-  <section class="grid lg:grid-cols-[minmax(400px,470px)_1fr] gap-x-9 gap-y-9 mb-8 place-content-center"
+  <section class="grid grid-cols-1 lg:grid-cols-[minmax(460px,470px)_1fr] gap-x-9 gap-y-9 mb-8 place-content-center justify-self-center"
     style="max-width: 1128px; margin: auto;">
     <!-- Display the main pokemon searched! -->
     <div class="white-box p-3 justify-self-center md:justify-start" style="height: 321px; min-width: 470px;">
@@ -87,7 +87,7 @@
 
     <!-- Base Stats and Abilities -->
 
-    <div class="md:col-start-2 md:row-start-1">
+    <div class="lg:col-start-2 lg:row-start-1">
       <div class="sub-grid gap-2">
 
 
@@ -121,25 +121,18 @@
       </div>
     </div>
     <!-- grid section for all moves and locations -->
-    <div class="lg:col-start-2">
+    <div class="lg:col-start-2 max-w-[75%] lg:max-w-[100%] justify-self-center">
       <!-- All Moves: -->
-      <div class="white-box mb-8 p-3.5 justify-self-center md:justify-start" style="height: 278px; max-width: 80%;" >
+      <div class="white-box mb-8 p-3.5 justify-self-center md:justify-start" style="height: 278px;" >
         <h2 class="pb-1">All Moves: </h2>
         <!-- Insert scrollable content! -->
         <p id="displayAllMoves" class="overflow-y-auto" style="height: 185px;">
-          pay-day, double-kick, sand-attack, headbutt, tackle, body-slam, take-down, double-edge, growl, hyper-beam,
-          strength, thunderbolt, thunder, dig, toxic, mimic, double-team, reflect, bide, swift, skull-bash, rest,
-          substitute, snore, curse, protect, mud-slap, detect, endure, charm, swagger, attract, sleep-talk, return,
-          frustration, iron-tail, hidden-power, rain-dance, sunny-day, psych-up, shadow-ball, rock-smash, facade,
-          helping-hand, wish, magic-coat, yawn, secret-power, covet, fake-tears, tickle, signal-beam, aerial-ace,
-          iron-defense, last-resort, natural-gift, captivate, round, echoed-voice, stored-power, incinerate, retaliate,
-          work-up, confide, baby-doll-eyes, play-rough, power-up-punch, laser-focus, baton-pass, encore, copycat,
-          muddy-water, tearful-look, weather-ball, hyper-voice, quick-attack, bite
+          pay-day, double-kick, sand-attack, headbutt
         </p>
       </div>
 
       <!-- Locations: -->
-      <div class="white-box p-3.5 justify-self-center md:justify-start" style="height: 168px; max-width: 80%;">
+      <div class="white-box p-3.5 justify-self-center md:justify-start" style="height: 168px;">
         <h2 class="pb-1.5">Locations: </h2>
         <p id="displayLocations" class="overflow-y-auto" style="height: 90px;">castelia city area, kalos route 10 area,
           celadon city celadon
