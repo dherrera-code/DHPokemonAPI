@@ -14,7 +14,7 @@ application will be responsive for this build!
 List of features to complete: 
     implement input validation
     implement favorites local storage functionality
-    display evolution line
+    
     implement responsiveness!!!!
     Add to UI to display pokedex entry number!
 

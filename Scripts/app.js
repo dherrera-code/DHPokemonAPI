@@ -1,5 +1,4 @@
-// alert("please work")
-
+import { saveFavoritePokemon, getFromLocalStorage, removeFavoritePokemon } from "./localStorage";
 const toggleFavSidebarBtn = document.getElementById("toggleFavSidebarBtn")
 const favoritesSidebar = document.getElementById("favoritesSidebar")
 const hideFavSidebarBtn = document.getElementById("hideFavSidebarBtn");
@@ -7,7 +6,6 @@ const hideFavSidebarBtn = document.getElementById("hideFavSidebarBtn");
 const pokemonCries = document.getElementById("pokemonCries")
 const pokemonCriesBtn = document.getElementById("pokemonCriesBtn")
 const favPokemonStar = document.getElementById("favPokemonStar")
-
 const inputPokemon = document.getElementById("inputPokemon")
 
 // DOM elements for outputs here
@@ -37,13 +35,11 @@ const getPokemon = async (pokemon) => {
     console.log("function evoked")
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
     const data = await response.json();
-    // console.log(data);
     return data;
 }
 const getMorePkData = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
-    // console.log(data)
     return data;
 }
 
@@ -53,8 +49,6 @@ const getPokemonEvolution = async (pokemon) => {
     console.log(data.evolution_chain.url)
     return data.evolution_chain.url;
 }
-
-// getPokemonEvolution("eevee")
 
 const displayPokemon = async (data) => {
     console.log(data);
@@ -194,11 +188,7 @@ const displayEvolutionChain = async (evolUrl) => {
     }
 }
 
-
-
-
 inputPokemon.addEventListener("keydown", async (event) => {
-
     if (event.key === "Enter") {
         console.log("Enter key is pressed!")
         let newPokemon = await getPokemon(inputPokemon.value);
@@ -219,7 +209,11 @@ hideFavSidebarBtn.addEventListener("click", () => {
 pokemonCriesBtn.addEventListener("click", () => {
     pokemonCries.play()
 })
-// work in progress!
+
+const displayFavPokemonList = () => {
+    
+}
+
 favPokemonStar.addEventListener("click", () => {
     //If not in favorite list then add to fav list and toggle fav star!
     //else remove from fav and toggle nonFav star!
