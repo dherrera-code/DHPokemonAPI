@@ -23,9 +23,9 @@
       <img id="toggleFavSidebarBtn" src="./Assets/Toggle Icon.png" class="ps-8 pt-1" alt="Toggle Favorite Pokemon.">
     </div>
 
-    <div class="flex flex-row" style="height: 70px;">
-      <input type="text" id="inputPokemon" 
-        class="w-full p-4 border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+    <div class="flex flex-row justify-center" style="height: 70px;">
+      <input type="text" id="inputPokemon" style="width:1000px;"
+        class="p-4 border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
         placeholder="Enter a Name or Pokedex number!" required />
       <img id="randomPokeBtn" type="submit" class="iconBtn my-auto pe-5" src="./Assets/Shuffle-icon.png"
         alt="Randomize Pokemon Search!">
@@ -81,10 +81,12 @@
     <!-- Display the evolution line! -->
     <div class="white-box md:col-start-1" style="height: 478px; width: 470px;">
       <h2 class="text-center">Evolution</h2>
-      <div id="firstEvol"></div>
-      <!-- <img class="mx-auto" src="./Assets/DownArrow.svg" alt="Next Evolution"> -->
+      <div id="firstEvol" class="flex flex-wrap justify-evenly"></div>
+
+      <img id="firstArrow" style="margin-inline:auto;" class="hidden" src="./Assets/DownArrow.svg" alt="Next Evolution">
+
       <div id="secondEvol" class="flex flex-wrap justify-evenly"></div>
-      <!-- <img class="mx-auto" src="./Assets/DownArrow.svg" alt="Next Evolution"> -->
+      <img id="secondArrow" style="margin-inline:auto;" class="hidden" src="./Assets/DownArrow.svg" alt="Next Evolution">
       <div id="thirdEvol" class="flex flex-wrap justify-evenly">
         <!-- <div>
           <img style="height: 100px;" class="mx-auto" src="./Assets/133Eevee.png" alt="Pkmon">
