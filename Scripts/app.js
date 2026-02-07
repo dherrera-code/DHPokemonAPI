@@ -50,15 +50,6 @@ const getPokemonEvolution = async (pokemon) => {
 }
 
 const displayPokemon = async (data) => {
-    console.log(data);
-
-    let favList = getFromLocalStorage();
-    for (let i = 0; i < favList.length; i++)
-        if (data.species.name === favList[i]) {
-            favPokemonStar.src = "./Assets/Star-Yellow.png"
-        } else {
-            favPokemonStar.src = "./Assets/Star 1.png"
-        }
 
     pokemonName.textContent = data.species.name;
     pkmonImg.src = data.sprites.other["official-artwork"].front_default;
@@ -108,9 +99,9 @@ const displayPokemon = async (data) => {
 
     let locationData = await getMorePkData(data.location_area_encounters)
 
-    let locationString = locationData[0].location_area.name;
-    for (let i = 1; i < locationData.length; i++) {
-        locationString += ", " + locationData[i].location_area.name;
+    let locationString = "";
+    for (let i = 0; i < locationData.length; i++) {
+        locationString += locationData[i].location_area.name + ", " ;
     }
     displayLocations.textContent = locationString;
 }
@@ -196,6 +187,7 @@ inputPokemon.addEventListener("keydown", async (event) => {
         displayPokemon(newPokemon);
         displayEvolutionChain(newPokemonEvolution)
         inputPokemon.value = "";
+        isCurrentFav(newPokemon.species.name);
     }
 })
 searchPokeBtn.addEventListener("click", async () => {
@@ -244,6 +236,20 @@ const displayFavList = (favPkmonList) => {
     }
     displayFavPokemon.appendChild(uList);
 }
+const isCurrentFav = (pokemon) => {
+    let favList = getFromLocalStorage();
+    console.log("Displaying pkmon: " + favList)
+    console.log(pokemon + " " + favList[1])
+    for (let i = 0; i < favList.length; i++)
+        if (pokemon === favList[i]) {
+            console.log("Yes its fav")
+            favPokemonStar.src = "./Assets/Star-Yellow.png"
+            return;
+        } else {
+            console.log("No its not fav yet")
+            favPokemonStar.src = "./Assets/Star 1.png"
+        }
+}
 
 window.addEventListener("load", async () => {
     let pkmon = await getPokemon("bulbasaur")
@@ -254,6 +260,8 @@ window.addEventListener("load", async () => {
     let favPokemonList = getFromLocalStorage();
     console.log(favPokemonList)
     displayFavList(favPokemonList);
+
+    isCurrentFav("bulbasaur");
 
 })
 // displayFavPkmon.addEventListener("click", () => {
