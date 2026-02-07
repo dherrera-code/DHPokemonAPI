@@ -63,4 +63,8 @@ form {
     grid-template-columns: 470px 1fr;
     max-width: 1128px;
 }
+.sub-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 /* Add media queries here! */

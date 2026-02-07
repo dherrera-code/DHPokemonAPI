@@ -17,20 +17,19 @@
 <body>
   <!-- Header will contain the search bar and the toggler for the fav sidebar -->
 
-  <header class="my-7 place-items-center">
+  <header class="my-7">
+    <div class="flex justify-between" style="height: 70px;">
+      <img id="toggleFavSidebarBtn" src="./Assets/Toggle Icon.png" class="ps-5 pe-5" alt="Toggle Favorite Pokemon.">
 
-    <div class="" style="position: absolute; left: 0;">
-      <img id="toggleFavSidebarBtn" src="./Assets/Toggle Icon.png" class="ps-8 pt-1" alt="Toggle Favorite Pokemon.">
-    </div>
-
-    <div class="flex flex-row justify-center" style="height: 70px;">
-      <input type="text" id="inputPokemon" style="max-width:1000px;"
+      <input type="text" id="inputPokemon" style="min-width: 70%;"
         class="p-4 border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
         placeholder="Enter a Name or Pokedex number!" required />
-      <img id="randomPokeBtn" type="submit" class="iconBtn my-auto pe-5" src="./Assets/Shuffle-icon.png"
-        alt="Randomize Pokemon Search!">
-      <img id="searchPokeBtn" type="submit" class="iconBtn my-auto pe-5" src="./Assets/Search-icon.png"
-        alt="Search for Pokemon Button!">
+        <div class="flex flex-row me-5">
+          <img id="randomPokeBtn" type="submit" class="iconBtn my-auto ms-5" src="./Assets/Shuffle-icon.png"
+            alt="Randomize Pokemon Search!">
+          <img id="searchPokeBtn" type="submit" class="iconBtn my-auto ms-5 me-5" src="./Assets/Search-icon.png"
+            alt="Search for Pokemon Button!">
+        </div>
     </div>
   </header>
 
@@ -48,7 +47,7 @@
   <section class="grid lg:grid-cols-[minmax(400px,470px)_1fr] gap-x-9 gap-y-9 mb-8 place-content-center"
     style="max-width: 1128px; margin: auto;">
     <!-- Display the main pokemon searched! -->
-    <div class="white-box p-3 justify-self-center md:justify-start" style="height: 321px; max-width: 470px;">
+    <div class="white-box p-3 justify-self-center md:justify-start" style="height: 321px; min-width: 470px;">
       <div class="flex">
         <h1 id="pokemonName" class="pe-4" style="font-size: 40px;">Eevee</h1>
         <img id="favPokemonStar" src="./Assets/Star 1.png" alt="Toggle Favorites Star!">
@@ -87,9 +86,9 @@
     </div>
 
     <!-- Base Stats and Abilities -->
-    <!-- <div class="lg:col-start-2 lg:row-start-1 lg:grid grid-cols-2"> -->
+
     <div class="md:col-start-2 md:row-start-1">
-      <div class="grid gap-2 md:grid-cols-2">
+      <div class="sub-grid gap-2">
 
 
         <div class="white-box p-3.5 justify-self-center md:justify-start" style="max-width: 302px;">

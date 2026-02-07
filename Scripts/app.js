@@ -257,6 +257,7 @@ searchPokeBtn.addEventListener("click", async () => {
     displayPokemon(newPokemon);
     displayEvolutionChain(newPokemonEvolution)
     inputPokemon.value = "";
+    isCurrentFav(newPokemon.species.name)
 })
 randomPokeBtn.addEventListener("click", async () => {
     let randomNum = (Math.floor(Math.random() * 649) + 1);
@@ -265,6 +266,7 @@ randomPokeBtn.addEventListener("click", async () => {
     let newPokemonEvolution = await getPokemonEvolution(randomNum)
     displayPokemon(newPokemon);
     displayEvolutionChain(newPokemonEvolution)
+    isCurrentFav(newPokemon.species.name)
 })
 
 toggleFavSidebarBtn.addEventListener("click", () => {

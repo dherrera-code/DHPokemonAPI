@@ -14,8 +14,6 @@
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
-    --text-sm: 0.875rem;
-    --text-sm--line-height: calc(1.25 / 0.875);
     --radius-lg: 0.5rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
@@ -182,8 +180,14 @@
   .my-auto {
     margin-block: auto;
   }
+  .ms-5 {
+    margin-inline-start: calc(var(--spacing) * 5);
+  }
   .ms-auto {
     margin-inline-start: auto;
+  }
+  .me-5 {
+    margin-inline-end: calc(var(--spacing) * 5);
   }
   .mt-18 {
     margin-top: calc(var(--spacing) * 18);
@@ -212,6 +216,27 @@
   .table {
     display: table;
   }
+  .min-w-1 {
+    min-width: calc(var(--spacing) * 1);
+  }
+  .min-w-1\/12 {
+    min-width: calc(1/12 * 100%);
+  }
+  .min-w-10 {
+    min-width: calc(var(--spacing) * 10);
+  }
+  .min-w-10\/12 {
+    min-width: calc(10/12 * 100%);
+  }
+  .min-w-11 {
+    min-width: calc(var(--spacing) * 11);
+  }
+  .min-w-11\/12 {
+    min-width: calc(11/12 * 100%);
+  }
+  .min-w-\[80\%\] {
+    min-width: 80%;
+  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -221,11 +246,41 @@
   .resize {
     resize: both;
   }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .grid-cols-\[auto-fit\(minmax\(\)\)\] {
+    grid-template-columns: auto-fit(minmax());
+  }
+  .grid-cols-\[auto-fit\(minmax\)\] {
+    grid-template-columns: auto-fit(minmax);
+  }
+  .grid-cols-\[auto-fit\(minmax9\)\] {
+    grid-template-columns: auto-fit(minmax9);
+  }
+  .grid-cols-\[auto-fit\] {
+    grid-template-columns: auto-fit;
+  }
+  .grid-cols-\[auto\] {
+    grid-template-columns: auto;
+  }
+  .grid-cols-\[minmax\(400px\,470px\)\] {
+    grid-template-columns: minmax(400px,470px);
+  }
   .grid-cols-\[minmax\(400px\,470px\)_1fr\] {
     grid-template-columns: minmax(400px,470px) 1fr;
+  }
+  .grid-cols-\[minmax\(470px\)\] {
+    grid-template-columns: minmax(470px);
+  }
+  .grid-cols-\[repeat\(auto-fit\,\)\] {
+    grid-template-columns: repeat(auto-fit,);
+  }
+  .grid-cols-\[repeat\] {
+    grid-template-columns: repeat;
   }
   .flex-row {
     flex-direction: row;
@@ -239,11 +294,17 @@
   .place-items-center {
     place-items: center;
   }
+  .justify-between {
+    justify-content: space-between;
+  }
   .justify-center {
     justify-content: center;
   }
   .justify-evenly {
     justify-content: space-evenly;
+  }
+  .justify-start {
+    justify-content: flex-start;
   }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
@@ -291,11 +352,20 @@
   .ps-5 {
     padding-inline-start: calc(var(--spacing) * 5);
   }
+  .ps-6 {
+    padding-inline-start: calc(var(--spacing) * 6);
+  }
+  .ps-7 {
+    padding-inline-start: calc(var(--spacing) * 7);
+  }
   .ps-8 {
     padding-inline-start: calc(var(--spacing) * 8);
   }
   .pe-1 {
     padding-inline-end: calc(var(--spacing) * 1);
+  }
+  .pe-3 {
+    padding-inline-end: calc(var(--spacing) * 3);
   }
   .pe-4 {
     padding-inline-end: calc(var(--spacing) * 4);
@@ -338,6 +408,11 @@
       --tw-ring-color: var(--color-blue-500);
     }
   }
+  .sm\:place-content-center {
+    @media (width >= 40rem) {
+      place-content: center;
+    }
+  }
   .md\:col-start-1 {
     @media (width >= 48rem) {
       grid-column-start: 1;
@@ -358,9 +433,9 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
-  .md\:grid-cols-\[minmax\(400px\,470px\)_1fr\] {
+  .md\:place-content-center {
     @media (width >= 48rem) {
-      grid-template-columns: minmax(400px,470px) 1fr;
+      place-content: center;
     }
   }
   .md\:justify-start {
@@ -388,14 +463,19 @@
       display: grid;
     }
   }
-  .lg\:grid-cols-\[minmax\(300px\,470px\)_1fr\] {
-    @media (width >= 64rem) {
-      grid-template-columns: minmax(300px,470px) 1fr;
-    }
-  }
   .lg\:grid-cols-\[minmax\(400px\,470px\)_1fr\] {
     @media (width >= 64rem) {
       grid-template-columns: minmax(400px,470px) 1fr;
+    }
+  }
+  .lg\:place-content-center {
+    @media (width >= 64rem) {
+      place-content: center;
+    }
+  }
+  .lg\:justify-start {
+    @media (width >= 64rem) {
+      justify-content: flex-start;
     }
   }
   .dark\:border-gray-600 {
