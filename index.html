@@ -19,21 +19,21 @@
 
   <header class="my-7 place-items-center">
 
-    <div class="">
+    <div class="" style="position: absolute; left: 0;">
       <img id="toggleFavSidebarBtn" src="./Assets/Toggle Icon.png" class="ps-8 pt-1" alt="Toggle Favorite Pokemon.">
     </div>
 
-    <form class="" style="height: 70px;">
-      <input type="search" id="default-search"
-        class="w-full p-4 text-sm border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+    <div class="flex flex-row" style="height: 70px;">
+      <input type="text" id="inputPokemon" 
+        class="w-full p-4 border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
         placeholder="Enter a Name or Pokedex number!" required />
       <img id="randomPokeBtn" type="submit" class="iconBtn my-auto pe-5" src="./Assets/Shuffle-icon.png"
         alt="Randomize Pokemon Search!">
       <img id="searchPokeBtn" type="submit" class="iconBtn my-auto pe-5" src="./Assets/Search-icon.png"
         alt="Search for Pokemon Button!">
-    </form>
+    </div>
   </header>
-  
+
   <!-- Toggled Sidebar to view favorites! -->
   <section id="favoritesSidebar" class="favorite-sidebar hidden" style="height: 100%;">
     <div class="flex flex-row">
@@ -60,7 +60,7 @@
     <!-- Display the main pokemon searched! -->
     <div class="white-box p-3" style="height: 321px; width: 470px;">
       <div class="flex">
-        <h1 class="pe-4" style="font-size: 40px;">Eevee</h1>
+        <h1 id="pokemonName" class="pe-4" style="font-size: 40px;">Eevee</h1>
         <img id="favPokemonStar" src="./Assets/Star 1.png" alt="Toggle Favorites Star!">
         <img id="pokemonCriesBtn" class="ms-auto" src="./Assets/audio 1.png" alt="Toggle Pokemon Cries!">
         <audio id="pokemonCries"
@@ -68,13 +68,13 @@
       </div>
 
       <div class="grid grid-cols-2 mb-9">
-        <img style="width: 160px;" src="./Assets/133Eevee.png" alt="Pokemon Called">
-        <img style="width: 160px;" src="./Assets/133Shiny.png" alt="Shiny Pokemon Called">
+        <img id="pkmonImg" style="width: 160px;" src="./Assets/133Eevee.png" alt="Pokemon Called">
+        <img id="pkmonShiny" style="width: 160px;" src="./Assets/133Shiny.png" alt="Shiny Pokemon Called">
       </div>
 
-      <div class="flex">
+      <div id="pkmonTypings" class="flex gap-2.5">
         <img src="./Assets/normalType.png" alt="First pokemon's typing">
-        <img class="ps-2.5" src="./Assets/normalType.png" alt="Second typing">
+        <img src="./Assets/normalType.png" alt="Second typing">
       </div>
     </div>
 
@@ -111,23 +111,23 @@
               <p class="text-end">Speed: </p>
             </div>
             <div class="col-start-2">
-              <p>0</p>
-              <p>0</p>
-              <p>0</p>
-              <p>0</p>
-              <p>0</p>
-              <p>0</p>
+              <p id="outputHP">0</p>
+              <p id="outputAttack">0</p>
+              <p id="outputDefense">0</p>
+              <p id="outputSpAttack">0</p>
+              <p id="outputSpDefense">0</p>
+              <p id="outputSpeed">0</p>
             </div>
           </div>
-          <h3 class="mt-18" id="totalPokeStat">Total Stats: 325</h3>
+          <h3 class="mt-18" id="totalPkStat">Total Stats: 325</h3>
         </div>
-      
-      <div class="white-box  lg:ms-auto p-3.5" style="max-width: 302px;">
-        <h2 class="pb-3">Abilities</h2>
-        <p id="abilities">Hidden Ability: Anticipation Other Abilities: Run Away, Adaptability</p>
+
+        <div class="white-box  lg:ms-auto p-3.5" style="min-width: 302px;">
+          <h2 class="pb-3">Abilities</h2>
+          <p id="abilities">Hidden Ability: Anticipation Other Abilities: Run Away, Adaptability</p>
+        </div>
       </div>
     </div>
-</div>
     <!-- grid section for all moves and locations -->
     <div class="lg:col-start-2">
       <!-- All Moves: -->
@@ -149,7 +149,7 @@
       <!-- Locations: -->
       <div class="white-box p-3.5 " style="height: 168px;">
         <h2 class="pb-1.5">Locations: </h2>
-        <p class="overflow-y-auto" style="height: 90px;">castelia city area, kalos route 10 area, celadon city celadon
+        <p id="displayLocations" class="overflow-y-auto" style="height: 90px;">castelia city area, kalos route 10 area, celadon city celadon
           mansion, goldenrod city bills house, hearthome city area, alola route 4 area, alola route 6 north, alola route
           6 south, paniola ranch area.</p>
       </div>
