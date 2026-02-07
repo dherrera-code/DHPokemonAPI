@@ -24,7 +24,7 @@
     </div>
 
     <div class="flex flex-row justify-center" style="height: 70px;">
-      <input type="text" id="inputPokemon" style="width:1000px;"
+      <input type="text" id="inputPokemon" style="max-width:1000px;"
         class="p-4 border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
         placeholder="Enter a Name or Pokedex number!" required />
       <img id="randomPokeBtn" type="submit" class="iconBtn my-auto pe-5" src="./Assets/Shuffle-icon.png"
@@ -45,10 +45,10 @@
   </section>
 
   <!-- Here is the main body within one major grid! -->
-  <section class="grid lg:grid-cols-[minmax(300px,470px)_1fr] gap-x-9 gap-y-9 mx-auto mb-5 place-items-center"
-    style="max-width: 1128px;">
+  <section class="grid lg:grid-cols-[minmax(400px,470px)_1fr] gap-x-9 gap-y-9 mb-8 place-content-center"
+    style="max-width: 1128px; margin: auto;">
     <!-- Display the main pokemon searched! -->
-    <div class="white-box p-3" style="height: 321px; width: 470px;">
+    <div class="white-box p-3 justify-self-center md:justify-start" style="height: 321px; max-width: 470px;">
       <div class="flex">
         <h1 id="pokemonName" class="pe-4" style="font-size: 40px;">Eevee</h1>
         <img id="favPokemonStar" src="./Assets/Star 1.png" alt="Toggle Favorites Star!">
@@ -69,14 +69,15 @@
     </div>
 
     <!-- Display the evolution line! -->
-    <div class="white-box md:col-start-1" style="height: 478px; width: 470px;">
+    <div class="white-box md:col-start-1 justify-self-center md:justify-start" style="height: 478px; min-width: 470px;">
       <h2 class="text-center">Evolution</h2>
       <div id="firstEvol" class="flex flex-wrap justify-evenly"></div>
 
       <img id="firstArrow" style="margin-inline:auto;" class="hidden" src="./Assets/DownArrow.svg" alt="Next Evolution">
 
       <div id="secondEvol" class="flex flex-wrap justify-evenly"></div>
-      <img id="secondArrow" style="margin-inline:auto;" class="hidden" src="./Assets/DownArrow.svg" alt="Next Evolution">
+      <img id="secondArrow" style="margin-inline:auto;" class="hidden" src="./Assets/DownArrow.svg"
+        alt="Next Evolution">
       <div id="thirdEvol" class="flex flex-wrap justify-evenly">
         <!-- <div>
           <img style="height: 100px;" class="mx-auto" src="./Assets/133Eevee.png" alt="Pkmon">
@@ -91,7 +92,7 @@
       <div class="grid gap-2 md:grid-cols-2">
 
 
-        <div class="white-box p-3.5" style="max-width: 302px;">
+        <div class="white-box p-3.5 justify-self-center md:justify-start" style="max-width: 302px;">
           <h2 class="pb-3">Base Stats</h2>
           <div class="grid grid-cols-2">
             <div class="pe-1">
@@ -114,7 +115,7 @@
           <h3 class="mt-18" id="totalPkStat">Total Stats: 325</h3>
         </div>
 
-        <div class="white-box  lg:ms-auto p-3.5" style="min-width: 302px;">
+        <div class="white-box justify-self-center md:justify-start lg:ms-auto p-3.5" style="max-width: 302px;">
           <h2 class="pb-3">Abilities</h2>
           <p id="abilities">Hidden Ability: Anticipation Other Abilities: Run Away, Adaptability</p>
         </div>
@@ -123,7 +124,7 @@
     <!-- grid section for all moves and locations -->
     <div class="lg:col-start-2">
       <!-- All Moves: -->
-      <div class="white-box mb-8 p-3.5" style="height: 278px;">
+      <div class="white-box mb-8 p-3.5 justify-self-center md:justify-start" style="height: 278px; max-width: 80%;" >
         <h2 class="pb-1">All Moves: </h2>
         <!-- Insert scrollable content! -->
         <p id="displayAllMoves" class="overflow-y-auto" style="height: 185px;">
@@ -139,9 +140,10 @@
       </div>
 
       <!-- Locations: -->
-      <div class="white-box p-3.5 " style="height: 168px;">
+      <div class="white-box p-3.5 justify-self-center md:justify-start" style="height: 168px; max-width: 80%;">
         <h2 class="pb-1.5">Locations: </h2>
-        <p id="displayLocations" class="overflow-y-auto" style="height: 90px;">castelia city area, kalos route 10 area, celadon city celadon
+        <p id="displayLocations" class="overflow-y-auto" style="height: 90px;">castelia city area, kalos route 10 area,
+          celadon city celadon
           mansion, goldenrod city bills house, hearthome city area, alola route 4 area, alola route 6 north, alola route
           6 south, paniola ranch area.</p>
       </div>
@@ -150,8 +152,8 @@
   </section>
 
 
-  <script type="module" src="./Scripts/app.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+  <script type="module" src="./Scripts/app.js"></script>
   <script type="module" src="./Scripts/localStorage.js"></script>
 </body>
 

@@ -25,4 +25,5 @@ const removeFavoritePokemon = (pokemonName) => {
     pokemonList.splice(pokemonNameIndex, 1);
     localStorage.setItem("favoritePokemonList", JSON.stringify(pokemonList))
 }
+
 export {saveFavoritePokemon, getFromLocalStorage, removeFavoritePokemon }

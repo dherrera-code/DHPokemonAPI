@@ -1,4 +1,5 @@
-import { saveFavoritePokemon, getFromLocalStorage, removeFavoritePokemon } from "./localStorage";
+import { saveFavoritePokemon, getFromLocalStorage, removeFavoritePokemon } from "./localStorage.js";
+
 const toggleFavSidebarBtn = document.getElementById("toggleFavSidebarBtn")
 const favoritesSidebar = document.getElementById("favoritesSidebar")
 const hideFavSidebarBtn = document.getElementById("hideFavSidebarBtn");
