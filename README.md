@@ -13,7 +13,6 @@ application will be responsive for this build!
 
 List of features need to complete: 
     implement input validation
-    Fix: favorites local storage functionality
     
     implement responsiveness!!!!
     Add to UI to display pokedex entry number!

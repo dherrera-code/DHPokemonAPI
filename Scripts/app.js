@@ -165,9 +165,8 @@ const displayEvolutionChain = async (evolUrl) => {
         thirdEvolImg.style = "width: 100px; height: 100px"
         thirdEvolImg.className = "mx-auto"
         thirdEvolImg.alt = evolData.chain.evolves_to[0].evolves_to[i].species.name;
-        console.log(evolData.chain.evolves_to[0].evolves_to[i].species.name)
         let newEvolData = await getPokemon(evolData.chain.evolves_to[0].evolves_to[i].species.name)
-        console.log(newEvolData)
+        // console.log(newEvolData)
 
         thirdEvolImg.src = newEvolData.sprites.other["official-artwork"].front_default;
         const thirdEvolName = document.createElement('p');
@@ -178,46 +177,6 @@ const displayEvolutionChain = async (evolUrl) => {
         displayThirdEvol.appendChild(pkmonDiv);
     }
 }
-
-inputPokemon.addEventListener("keydown", async (event) => {
-    if (event.key === "Enter") {
-        // console.log("Enter key is pressed!")
-        let newPokemon = await getPokemon(inputPokemon.value);
-        let newPokemonEvolution = await getPokemonEvolution(inputPokemon.value)
-        displayPokemon(newPokemon);
-        displayEvolutionChain(newPokemonEvolution)
-        inputPokemon.value = "";
-        isCurrentFav(newPokemon.species.name);
-    }
-})
-searchPokeBtn.addEventListener("click", async () => {
-    let newPokemon = await getPokemon(inputPokemon.value);
-    let newPokemonEvolution = await getPokemonEvolution(inputPokemon.value)
-    displayPokemon(newPokemon);
-    displayEvolutionChain(newPokemonEvolution)
-    inputPokemon.value = "";
-})
-randomPokeBtn.addEventListener("click", async () => {
-    let randomNum = (Math.floor(Math.random() * 1000) + 1);
-    console.log(randomNum)
-    let newPokemon = await getPokemon(randomNum);
-    let newPokemonEvolution = await getPokemonEvolution(randomNum)
-    displayPokemon(newPokemon);
-    displayEvolutionChain(newPokemonEvolution)
-
-})
-
-toggleFavSidebarBtn.addEventListener("click", () => {
-    console.log("Fav btn clicked!")
-    favoritesSidebar.classList.remove("hidden")
-})
-hideFavSidebarBtn.addEventListener("click", () => {
-    favoritesSidebar.classList.add("hidden")
-})
-pokemonCriesBtn.addEventListener("click", () => {
-    pokemonCries.play()
-})
-
 let isFav = false;
 
 const displayFavList = (favPkmonList) => {
@@ -250,6 +209,44 @@ const isCurrentFav = (pokemon) => {
             favPokemonStar.src = "./Assets/Star 1.png"
         }
 }
+
+inputPokemon.addEventListener("keydown", async (event) => {
+    if (event.key === "Enter") {
+        // console.log("Enter key is pressed!")
+        let newPokemon = await getPokemon(inputPokemon.value);
+        let newPokemonEvolution = await getPokemonEvolution(inputPokemon.value)
+        displayPokemon(newPokemon);
+        displayEvolutionChain(newPokemonEvolution)
+        inputPokemon.value = "";
+        isCurrentFav(newPokemon.species.name);
+    }
+})
+searchPokeBtn.addEventListener("click", async () => {
+    let newPokemon = await getPokemon(inputPokemon.value);
+    let newPokemonEvolution = await getPokemonEvolution(inputPokemon.value)
+    displayPokemon(newPokemon);
+    displayEvolutionChain(newPokemonEvolution)
+    inputPokemon.value = "";
+})
+randomPokeBtn.addEventListener("click", async () => {
+    let randomNum = (Math.floor(Math.random() * 649) + 1);
+    console.log(randomNum)
+    let newPokemon = await getPokemon(randomNum);
+    let newPokemonEvolution = await getPokemonEvolution(randomNum)
+    displayPokemon(newPokemon);
+    displayEvolutionChain(newPokemonEvolution)
+})
+
+toggleFavSidebarBtn.addEventListener("click", () => {
+    console.log("Fav btn clicked!")
+    favoritesSidebar.classList.remove("hidden")
+})
+hideFavSidebarBtn.addEventListener("click", () => {
+    favoritesSidebar.classList.add("hidden")
+})
+pokemonCriesBtn.addEventListener("click", () => {
+    pokemonCries.play()
+})
 
 window.addEventListener("load", async () => {
     let pkmon = await getPokemon("bulbasaur")
