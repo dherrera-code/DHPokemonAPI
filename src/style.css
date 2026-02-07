@@ -11,14 +11,14 @@ body {
     font-variation-settings:
         "wdth" 100;
 }
-@media (min-width: 800px){
+/* @media (min-width: 800px){
     .search-bar{
         min-width: none;
     }
 }
 .search-bar {
     min-width: 1128px;
-}
+} */
 
 form {
     color: #555;

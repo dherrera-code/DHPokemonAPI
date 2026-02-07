@@ -21,8 +21,8 @@
     <div class="flex justify-between" style="height: 70px;">
       <img id="toggleFavSidebarBtn" src="./Assets/Toggle Icon.png" class="ps-5 pe-5" alt="Toggle Favorite Pokemon.">
 
-      <input type="text" id="inputPokemon" style="min-width: 70%;"
-        class="p-4 border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+      <input type="text" id="inputPokemon"
+        class="sm:min-w-[70%] p-4 border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
         placeholder="Enter a Name or Pokedex number!" required />
         <div class="flex flex-row me-5">
           <img id="randomPokeBtn" type="submit" class="iconBtn my-auto ms-5" src="./Assets/Shuffle-icon.png"
@@ -47,7 +47,7 @@
   <section class="grid grid-cols-1 lg:grid-cols-[minmax(460px,470px)_1fr] gap-x-9 gap-y-9 mb-8 place-content-center justify-self-center"
     style="max-width: 1128px; margin: auto;">
     <!-- Display the main pokemon searched! -->
-    <div class="white-box p-3 justify-self-center md:justify-start" style="height: 321px; min-width: 470px;">
+    <div class="white-box p-3 justify-self-center md:justify-start sm:min-w-100" style="height: 321px;">
       <div class="flex">
         <h1 id="pokemonName" class="pe-4" style="font-size: 40px;">Eevee</h1>
         <img id="favPokemonStar" src="./Assets/Star 1.png" alt="Toggle Favorites Star!">
@@ -68,7 +68,7 @@
     </div>
 
     <!-- Display the evolution line! -->
-    <div class="white-box md:col-start-1 justify-self-center md:justify-start" style="height: 478px; min-width: 470px;">
+    <div class="white-box md:col-start-1 justify-self-center md:justify-start min-w-50 sm:min-w-100" style="height: 478px;">
       <h2 class="text-center">Evolution</h2>
       <div id="firstEvol" class="flex flex-wrap justify-evenly"></div>
 
@@ -121,7 +121,7 @@
       </div>
     </div>
     <!-- grid section for all moves and locations -->
-    <div class="lg:col-start-2 max-w-[75%] lg:max-w-[100%] justify-self-center">
+    <div class="lg:col-start-2 max-w-[75%] lg:max-w-full justify-self-center">
       <!-- All Moves: -->
       <div class="white-box mb-8 p-3.5 justify-self-center md:justify-start" style="height: 278px;" >
         <h2 class="pb-1">All Moves: </h2>
@@ -142,7 +142,6 @@
     </div>
 
   </section>
-
 
   <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
   <script type="module" src="./Scripts/app.js"></script>
