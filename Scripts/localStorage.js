@@ -1,5 +1,3 @@
-
-
 const saveFavoritePokemon = (pokemonName) => {
     let pokemonList = getFromLocalStorage();
 
