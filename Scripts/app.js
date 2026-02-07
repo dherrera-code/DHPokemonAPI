@@ -2,6 +2,8 @@ import { saveFavoritePokemon, getFromLocalStorage, removeFavoritePokemon } from 
 const toggleFavSidebarBtn = document.getElementById("toggleFavSidebarBtn")
 const favoritesSidebar = document.getElementById("favoritesSidebar")
 const hideFavSidebarBtn = document.getElementById("hideFavSidebarBtn");
+const searchPokeBtn = document.getElementById("searchPokeBtn");
+const randomPokeBtn = document.getElementById("randomPokeBtn");
 
 const pokemonCries = document.getElementById("pokemonCries")
 const pokemonCriesBtn = document.getElementById("pokemonCriesBtn")
@@ -28,11 +30,9 @@ const displaySecondEvol = document.getElementById("secondEvol");
 const displayThirdEvol = document.getElementById("thirdEvol");
 const firstEvolArrow = document.getElementById("firstArrow")
 const secondEvolArrow = document.getElementById("secondArrow");
+const displayFavPokemon = document.getElementById("displayFavPokemon")
 
-let pokemon = "eevee";
-let isFav = false;
 const getPokemon = async (pokemon) => {
-    console.log("function evoked")
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
     const data = await response.json();
     return data;
@@ -46,13 +46,20 @@ const getMorePkData = async (url) => {
 const getPokemonEvolution = async (pokemon) => {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon}/`);
     const data = await response.json();
-    console.log(data.evolution_chain.url)
     return data.evolution_chain.url;
 }
 
 const displayPokemon = async (data) => {
     console.log(data);
-    // console.log(data.species.name);
+
+    let favList = getFromLocalStorage();
+    for (let i = 0; i < favList.length; i++)
+        if (data.species.name === favList[i]) {
+            favPokemonStar.src = "./Assets/Star-Yellow.png"
+        } else {
+            favPokemonStar.src = "./Assets/Star 1.png"
+        }
+
     pokemonName.textContent = data.species.name;
     pkmonImg.src = data.sprites.other["official-artwork"].front_default;
     pkmonShiny.src = data.sprites.other["official-artwork"].front_shiny;
@@ -98,9 +105,9 @@ const displayPokemon = async (data) => {
     pkmonAbilities.textContent = abilitieString;
 
     //display location needs to call another endpoint
-    console.log()
+
     let locationData = await getMorePkData(data.location_area_encounters)
-    console.log(locationData)
+
     let locationString = locationData[0].location_area.name;
     for (let i = 1; i < locationData.length; i++) {
         locationString += ", " + locationData[i].location_area.name;
@@ -112,20 +119,14 @@ const displayEvolutionChain = async (evolUrl) => {
     displaySecondEvol.innerHTML = "";
     displayThirdEvol.innerHTML = "";
 
-    console.log(evolUrl)
     let evolData = await getMorePkData(evolUrl);
-    console.log(evolData);
 
-    console.log(evolData.chain.species.name);
-    // console.log(evolData.chain.evolves_to[0].species.name)
-    
     const pkmonDiv = document.createElement("div");
     const firstEvolImg = document.createElement("img")
     firstEvolImg.style = "width: 100px; height: 100px"
     firstEvolImg.className = "mx-auto"
     firstEvolImg.alt = evolData.chain.species.name;
     let newEvolData = await getPokemon(evolData.chain.species.name)
-    console.log(newEvolData)
 
     firstEvolImg.src = newEvolData.sprites.other["official-artwork"].front_default; //Add function to return the image url!
 
@@ -139,7 +140,7 @@ const displayEvolutionChain = async (evolUrl) => {
     //create a for loop for second evolutions AND for loop for third evolutions!
     if (evolData.chain.evolves_to.length >= 1)
         firstEvolArrow.className = "";
-    else{
+    else {
         firstEvolArrow.className = "hidden";
         return;
     }
@@ -152,7 +153,6 @@ const displayEvolutionChain = async (evolUrl) => {
         secondEvolImg.alt = evolData.chain.evolves_to[i].species.name
 
         let newEvolData = await getPokemon(evolData.chain.evolves_to[i].species.name)
-        console.log(newEvolData)
 
         secondEvolImg.src = newEvolData.sprites.other["official-artwork"].front_default;
         const secondEvolName = document.createElement('p');
@@ -190,13 +190,29 @@ const displayEvolutionChain = async (evolUrl) => {
 
 inputPokemon.addEventListener("keydown", async (event) => {
     if (event.key === "Enter") {
-        console.log("Enter key is pressed!")
+        // console.log("Enter key is pressed!")
         let newPokemon = await getPokemon(inputPokemon.value);
         let newPokemonEvolution = await getPokemonEvolution(inputPokemon.value)
         displayPokemon(newPokemon);
         displayEvolutionChain(newPokemonEvolution)
         inputPokemon.value = "";
     }
+})
+searchPokeBtn.addEventListener("click", async () => {
+    let newPokemon = await getPokemon(inputPokemon.value);
+    let newPokemonEvolution = await getPokemonEvolution(inputPokemon.value)
+    displayPokemon(newPokemon);
+    displayEvolutionChain(newPokemonEvolution)
+    inputPokemon.value = "";
+})
+randomPokeBtn.addEventListener("click", async () => {
+    let randomNum = (Math.floor(Math.random() * 1000) + 1);
+    console.log(randomNum)
+    let newPokemon = await getPokemon(randomNum);
+    let newPokemonEvolution = await getPokemonEvolution(randomNum)
+    displayPokemon(newPokemon);
+    displayEvolutionChain(newPokemonEvolution)
+
 })
 
 toggleFavSidebarBtn.addEventListener("click", () => {
@@ -210,15 +226,65 @@ pokemonCriesBtn.addEventListener("click", () => {
     pokemonCries.play()
 })
 
-const displayFavPokemonList = () => {
-    
+let isFav = false;
+
+const displayFavList = (favPkmonList) => {
+    displayFavPokemon.innerHTML = "";
+    console.log(favPkmonList)
+
+    const uList = document.createElement("ul");
+
+    for (let i = 0; i < favPkmonList.length; i++) {
+        const li = document.createElement("li");
+        const aTag = document.createElement("a");
+        aTag.textContent = favPkmonList[i];
+        aTag.id = "displayFavPkmon";
+        li.appendChild(aTag);
+        uList.appendChild(li);
+    }
+    displayFavPokemon.appendChild(uList);
 }
 
+window.addEventListener("load", async () => {
+    let pkmon = await getPokemon("bulbasaur")
+    displayPokemon(pkmon)
+    let evolChain = await getPokemonEvolution("bulbasaur");
+    displayEvolutionChain(evolChain)
+
+    let favPokemonList = getFromLocalStorage();
+    console.log(favPokemonList)
+    displayFavList(favPokemonList);
+
+})
+// displayFavPkmon.addEventListener("click", () => {
+// console.log("function envoked ")
+
+// })
 favPokemonStar.addEventListener("click", () => {
     //If not in favorite list then add to fav list and toggle fav star!
     //else remove from fav and toggle nonFav star!
-    isFav = !isFav;
-    if (isFav) favPokemonStar.src = "./Assets/Star-Yellow.png"
-    else favPokemonStar.src = "./Assets/Star 1.png"
+    console.log("Fav btn evoked!")
+
+    let favList = getFromLocalStorage();
+    console.log(favList);
+    //This test the list if pokemon is already listed
+    isFav = true;
+    for (let i = 0; i < favList.length; i++) {
+        if (favList[i] === pokemonName.textContent) {
+            isFav = false;
+        }
+    }
+
+    if (isFav) {
+        saveFavoritePokemon(pokemonName.textContent)
+        favPokemonStar.src = "./Assets/Star-Yellow.png"
+
+    }
+    else {
+        removeFavoritePokemon(pokemonName.textContent);
+        favPokemonStar.src = "./Assets/Star 1.png"
+    }
+    favList = getFromLocalStorage();
+    displayFavList(favList)
 
 })

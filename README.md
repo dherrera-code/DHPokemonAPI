@@ -11,9 +11,9 @@ application will be responsive for this build!
 
 2/4/2026: Installed tailwind and initialize repo!
 
-List of features to complete: 
+List of features need to complete: 
     implement input validation
-    implement favorites local storage functionality
+    Fix: favorites local storage functionality
     
     implement responsiveness!!!!
     Add to UI to display pokedex entry number!
