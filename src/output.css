@@ -249,14 +249,29 @@
   .min-w-100 {
     min-width: calc(var(--spacing) * 100);
   }
+  .min-w-155 {
+    min-width: calc(var(--spacing) * 155);
+  }
+  .min-w-155\.5 {
+    min-width: calc(var(--spacing) * 155.5);
+  }
+  .min-w-\[1fr\] {
+    min-width: 1fr;
+  }
   .min-w-\[70\%\] {
     min-width: 70%;
   }
   .min-w-\[80\%\] {
     min-width: 80%;
   }
+  .min-w-\[302px\] {
+    min-width: 302px;
+  }
   .min-w-\[400px\] {
     min-width: 400px;
+  }
+  .min-w-\[622px\] {
+    min-width: 622px;
   }
   .border-collapse {
     border-collapse: collapse;
@@ -465,6 +480,16 @@
   .md\:row-start-1 {
     @media (width >= 48rem) {
       grid-row-start: 1;
+    }
+  }
+  .md\:min-w-155\.5 {
+    @media (width >= 48rem) {
+      min-width: calc(var(--spacing) * 155.5);
+    }
+  }
+  .md\:min-w-\[302px\] {
+    @media (width >= 48rem) {
+      min-width: 302px;
     }
   }
   .md\:grid-cols-1 {

@@ -94,6 +94,9 @@ const displayPokemon = async (data) => {
         else
             abilitieString += data.abilities[i].ability.name + ", ";
     }
+    console.log(abilitieString)
+    if(abilitieString === "")
+        abilitieString = "N/A";
     pkmonAbilities.textContent = abilitieString;
 
     //display location needs to call another endpoint
@@ -104,6 +107,8 @@ const displayPokemon = async (data) => {
     for (let i = 0; i < locationData.length; i++) {
         locationString += locationData[i].location_area.name + ", " ;
     }
+    if(locationString === "")
+        locationString = "N/A";
     displayLocations.textContent = locationString;
 }
 const displayEvolutionChain = async (evolUrl) => {
@@ -112,6 +117,7 @@ const displayEvolutionChain = async (evolUrl) => {
     displayThirdEvol.innerHTML = "";
 
     let evolData = await getMorePkData(evolUrl);
+    console.log(evolData);
 
     const pkmonDiv = document.createElement("div");
     const firstEvolImg = document.createElement("img")
@@ -130,13 +136,18 @@ const displayEvolutionChain = async (evolUrl) => {
     displayFirstEvol.appendChild(pkmonDiv);
 
     //create a for loop for second evolutions AND for loop for third evolutions!
-    if (evolData.chain.evolves_to.length >= 1)
+    if (evolData.chain.evolves_to.length >= 1){
         firstEvolArrow.className = "";
+        console.log(evolData)
+    console.log("Evolution num!" + evolData.chain.evolves_to.length)
+
+    }
     else {
         firstEvolArrow.className = "hidden";
+        secondEvolArrow.className = "hidden";
         return;
     }
-
+    console.log(evolData.chain.evolves_to.length)
     for (let i = 0; i < evolData.chain.evolves_to.length; i++) {
         const pkmonDiv = document.createElement("div");
         const secondEvolImg = document.createElement("img")
