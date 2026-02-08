@@ -24,12 +24,12 @@
       <input type="text" id="inputPokemon"
         class="min-w-[1fr] sm:min-w-[70%] p-4 border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
         placeholder="Enter a Name or Pokedex number!" required />
-        <div class="flex flex-row me-5">
-          <img id="randomPokeBtn" type="submit" class="iconBtn my-auto ms-5" src="./Assets/Shuffle-icon.png"
-            alt="Randomize Pokemon Search!">
-          <img id="searchPokeBtn" type="submit" class="iconBtn my-auto ms-5 me-5" src="./Assets/Search-icon.png"
-            alt="Search for Pokemon Button!">
-        </div>
+      <div class="flex flex-row me-5">
+        <img id="randomPokeBtn" type="submit" class="iconBtn my-auto ms-5" src="./Assets/Shuffle-icon.png"
+          alt="Randomize Pokemon Search!">
+        <img id="searchPokeBtn" type="submit" class="iconBtn my-auto ms-5 me-5" src="./Assets/Search-icon.png"
+          alt="Search for Pokemon Button!">
+      </div>
     </div>
   </header>
 
@@ -44,7 +44,8 @@
   </section>
 
   <!-- Here is the main body within one major grid! -->
-  <section class="grid grid-cols-1 lg:grid-cols-[minmax(460px,470px)_1fr] gap-x-9 gap-y-9 mb-8 place-content-center justify-self-center"
+  <section
+    class="grid grid-cols-1 lg:grid-cols-[minmax(460px,470px)_1fr] gap-x-9 gap-y-9 mb-8 place-content-center justify-self-center"
     style="max-width: 1128px; margin: auto;">
     <!-- Display the main pokemon searched! -->
     <div class="white-box p-3 justify-self-center md:justify-start sm:min-w-100" style="height: 321px;">
@@ -61,28 +62,22 @@
         <img id="pkmonShiny" style="width: 160px;" src="" alt="Shiny Pokemon Called">
       </div>
 
-      <div id="pkmonTypings" class="flex gap-2.5">
-        <img src="" alt="First pokemon's typing">
-        <img src="" alt="Second typing">
+      <div id="pkmonTypings" class="flex gap-2.5" style="width: 100%; height: auto;">
+        <img src="./Assets/normalType.png" alt="First pokemon's typing">
+        <img src="./Assets/normalType.png" alt="Second typing">
       </div>
     </div>
 
     <!-- Display the evolution line! -->
-    <div class="white-box md:col-start-1 justify-self-center md:justify-start min-w-50 sm:min-w-100" style="height: 478px;">
+    <div class="white-box md:col-start-1 justify-self-center md:justify-start min-w-50 sm:min-w-100"
+      style="height: 478px;">
       <h2 class="text-center">Evolution</h2>
       <div id="firstEvol" class="flex flex-wrap justify-evenly"></div>
-
       <img id="firstArrow" style="margin-inline:auto;" class="hidden" src="./Assets/DownArrow.svg" alt="Next Evolution">
-
       <div id="secondEvol" class="flex flex-wrap justify-evenly"></div>
       <img id="secondArrow" style="margin-inline:auto;" class="hidden" src="./Assets/DownArrow.svg"
         alt="Next Evolution">
-      <div id="thirdEvol" class="flex flex-wrap justify-evenly">
-        <!-- <div>
-          <img style="height: 100px;" class="mx-auto" src="./Assets/133Eevee.png" alt="Pkmon">
-          <p class="text-center">eevee</p>
-        </div> -->
-      </div>
+      <div id="thirdEvol" class="flex flex-wrap justify-evenly"></div>
     </div>
 
     <!-- Base Stats and Abilities -->
@@ -93,7 +88,7 @@
 
         <div class="white-box p-3.5 justify-self-center md:justify-start" style="max-width: 302px;">
           <h2 class="pb-3">Base Stats</h2>
-          <div class="grid grid-cols-2">
+          <div class="grid grid-cols-[minmax(200px, 1fr)]">
             <div class="pe-1">
               <p class="text-end">HP: </p>
               <p class="text-end">Attack: </p>
@@ -114,7 +109,7 @@
           <h3 class="mt-18" id="totalPkStat">Total Stats: 325</h3>
         </div>
 
-        <div class="white-box justify-self-center md:justify-start lg:ms-auto p-3.5 md:min-w-[302px]">
+        <div class="white-box justify-self-center md:justify-start lg:ms-auto p-3.5 md:min-w-75.5">
           <h2 class="pb-3">Abilities</h2>
           <p id="abilities">Hidden Ability: Anticipation Other Abilities: Run Away, Adaptability</p>
         </div>
@@ -123,7 +118,7 @@
     <!-- grid section for all moves and locations -->
     <div class="lg:col-start-2 max-w-[75%] lg:max-w-full justify-self-center">
       <!-- All Moves: -->
-      <div class="white-box mb-8 p-3.5 justify-self-center md:justify-start md:min-w-155.5" style="height: 278px;" >
+      <div class="white-box mb-8 p-3.5 justify-self-center md:justify-start md:min-w-155.5" style="height: 278px;">
         <h2 class="pb-1">All Moves: </h2>
         <!-- Insert scrollable content! -->
         <p id="displayAllMoves" class="overflow-y-auto" style="height: 185px;">

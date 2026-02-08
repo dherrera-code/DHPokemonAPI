@@ -60,6 +60,7 @@ const displayPokemon = async (data) => {
     pkmonTypings.innerHTML = "";
     for (let i = 0; i < data.types.length; i++) {
         const element = document.createElement("img");
+        element.style = "width: 169px; height: 34px; object-fit: cover;"
         let elementSprite = await getMorePkData(data.types[i].type.url);
         element.src = elementSprite.sprites["generation-ix"]["scarlet-violet"]["name_icon"];
         element.alt = elementSprite.name;
@@ -94,7 +95,6 @@ const displayPokemon = async (data) => {
         else
             abilitieString += data.abilities[i].ability.name + ", ";
     }
-    console.log(abilitieString)
     if(abilitieString === "")
         abilitieString = "N/A";
     pkmonAbilities.textContent = abilitieString;
@@ -117,8 +117,6 @@ const displayEvolutionChain = async (evolUrl) => {
     displayThirdEvol.innerHTML = "";
 
     let evolData = await getMorePkData(evolUrl);
-    console.log(evolData);
-
     const pkmonDiv = document.createElement("div");
     const firstEvolImg = document.createElement("img")
     firstEvolImg.style = "width: 100px; height: 100px"
@@ -138,16 +136,13 @@ const displayEvolutionChain = async (evolUrl) => {
     //create a for loop for second evolutions AND for loop for third evolutions!
     if (evolData.chain.evolves_to.length >= 1){
         firstEvolArrow.className = "";
-        console.log(evolData)
-    console.log("Evolution num!" + evolData.chain.evolves_to.length)
-
     }
     else {
         firstEvolArrow.className = "hidden";
         secondEvolArrow.className = "hidden";
         return;
     }
-    console.log(evolData.chain.evolves_to.length)
+
     for (let i = 0; i < evolData.chain.evolves_to.length; i++) {
         const pkmonDiv = document.createElement("div");
         const secondEvolImg = document.createElement("img")
@@ -178,7 +173,7 @@ const displayEvolutionChain = async (evolUrl) => {
         thirdEvolImg.className = "mx-auto"
         thirdEvolImg.alt = evolData.chain.evolves_to[0].evolves_to[i].species.name;
         let newEvolData = await getPokemon(evolData.chain.evolves_to[0].evolves_to[i].species.name)
-        // console.log(newEvolData)
+
 
         thirdEvolImg.src = newEvolData.sprites.other["official-artwork"].front_default;
         const thirdEvolName = document.createElement('p');
@@ -193,7 +188,6 @@ let isFav = false;
 
 const displayFavList = (favPkmonList) => {
     displayFavPokemon.innerHTML = "";
-    console.log(favPkmonList)
 
     const uList = document.createElement("ul");
 
@@ -209,15 +203,14 @@ const displayFavList = (favPkmonList) => {
 }
 const isCurrentFav = (pokemon) => {
     let favList = getFromLocalStorage();
-    console.log("Displaying pkmon: " + favList)
-    console.log(pokemon + " " + favList[1])
+
     for (let i = 0; i < favList.length; i++)
         if (pokemon === favList[i]) {
-            console.log("Yes its fav")
+
             favPokemonStar.src = "./Assets/Star-Yellow.png"
             return;
         } else {
-            console.log("No its not fav yet")
+
             favPokemonStar.src = "./Assets/Star 1.png"
         }
 }
@@ -253,7 +246,7 @@ const removeFavoritePokemon = (pokemonName) => {
 
 inputPokemon.addEventListener("keydown", async (event) => {
     if (event.key === "Enter") {
-        // console.log("Enter key is pressed!")
+
         let newPokemon = await getPokemon(inputPokemon.value);
         let newPokemonEvolution = await getPokemonEvolution(inputPokemon.value)
         displayPokemon(newPokemon);
@@ -272,7 +265,7 @@ searchPokeBtn.addEventListener("click", async () => {
 })
 randomPokeBtn.addEventListener("click", async () => {
     let randomNum = (Math.floor(Math.random() * 649) + 1);
-    console.log(randomNum)
+
     let newPokemon = await getPokemon(randomNum);
     let newPokemonEvolution = await getPokemonEvolution(randomNum)
     displayPokemon(newPokemon);
@@ -281,7 +274,7 @@ randomPokeBtn.addEventListener("click", async () => {
 })
 
 toggleFavSidebarBtn.addEventListener("click", () => {
-    console.log("Fav btn clicked!")
+
     favoritesSidebar.classList.remove("hidden")
 })
 hideFavSidebarBtn.addEventListener("click", () => {
@@ -298,23 +291,19 @@ window.addEventListener("load", async () => {
     displayEvolutionChain(evolChain)
 
     let favPokemonList = getFromLocalStorage();
-    console.log(favPokemonList)
+
     displayFavList(favPokemonList);
 
     isCurrentFav("bulbasaur");
 
 })
-// displayFavPkmon.addEventListener("click", () => {
-// console.log("function envoked ")
 
-// })
 favPokemonStar.addEventListener("click", () => {
     //If not in favorite list then add to fav list and toggle fav star!
     //else remove from fav and toggle nonFav star!
-    console.log("Fav btn evoked!")
 
     let favList = getFromLocalStorage();
-    console.log(favList);
+
     //This test the list if pokemon is already listed
     isFav = true;
     for (let i = 0; i < favList.length; i++) {

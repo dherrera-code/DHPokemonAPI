@@ -291,6 +291,12 @@
   .grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  .grid-cols-\[150px\,\] {
+    grid-template-columns: 150px,;
+  }
+  .grid-cols-\[150px\] {
+    grid-template-columns: 150px;
+  }
   .grid-cols-\[auto-fit\(minmax\(\)\)\] {
     grid-template-columns: auto-fit(minmax());
   }
@@ -480,6 +486,11 @@
   .md\:row-start-1 {
     @media (width >= 48rem) {
       grid-row-start: 1;
+    }
+  }
+  .md\:min-w-75\.5 {
+    @media (width >= 48rem) {
+      min-width: calc(var(--spacing) * 75.5);
     }
   }
   .md\:min-w-155\.5 {
