@@ -11,6 +11,8 @@ application will be responsive for this build!
 
 2/4/2026: Installed tailwind and initialize repo!
 
+Azure Link: https://ashy-mushroom-0fe13a81e.6.azurestaticapps.net/
+
 
 ## Peer Review (Darcy Rose) : I love the design, it feels like I'm looking at a pokedex. One thing I noticed is if there are no locations it displays an empty box, and it's supposed to say "N/A." Also if the moveset is super short, like ditto, then the moves box will be really tiny. A set minimum width might help. Another is that if there's only one pokemon in the evolution line there is still an arrow underneath it into nothing. Outside of that, I appreciate all of the extra details you put into it, like the cry and the stats. I can see you worked hard on it, well done! 
 

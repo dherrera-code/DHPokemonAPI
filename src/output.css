@@ -14,6 +14,8 @@
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
     --radius-lg: 0.5rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
@@ -240,6 +242,15 @@
   .h-\[70px\] {
     height: 70px;
   }
+  .min-h-119 {
+    min-height: calc(var(--spacing) * 119);
+  }
+  .min-h-119\.5 {
+    min-height: calc(var(--spacing) * 119.5);
+  }
+  .min-h-\[478px\] {
+    min-height: 478px;
+  }
   .w-\[1fr\] {
     width: 1fr;
   }
@@ -248,6 +259,9 @@
   }
   .max-w-\[75\%\] {
     max-width: 75%;
+  }
+  .max-w-\[300px\] {
+    max-width: 300px;
   }
   .max-w-\[1128px\] {
     max-width: 1128px;
@@ -390,6 +404,13 @@
   }
   .text-end {
     text-align: end;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-\[40px\] {
+    font-size: 40px;
   }
   .underline {
     text-decoration-line: underline;
