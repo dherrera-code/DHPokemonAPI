@@ -18,14 +18,14 @@
   <!-- Header will contain the search bar and the toggler for the fav sidebar -->
 
   <header class="my-7">
-    <div class="flex justify-between" style="height: 70px;">
+    <div class="flex justify-between h-10 lg:h-17 ">
       <img id="toggleFavSidebarBtn" src="./Assets/Toggle Icon.png" class="ps-5 pe-5" alt="Toggle Favorite Pokemon.">
 
       <input type="text" id="inputPokemon"
-        class="min-w-[1fr] sm:min-w-[70%] p-4 border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+        class="min-w-[50%] sm:min-w-[70%] p-4 border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 "
         placeholder="Enter a Name or Pokedex number!" required />
       <div class="flex flex-row me-5">
-        <img id="randomPokeBtn" type="submit" class="iconBtn my-auto ms-5" src="./Assets/Shuffle-icon.png"
+        <img id="randomPokeBtn" type="submit" class="iconBtn my-auto ms-1" src="./Assets/Shuffle-icon.png"
           alt="Randomize Pokemon Search!">
         <img id="searchPokeBtn" type="submit" class="iconBtn my-auto ms-5 me-5" src="./Assets/Search-icon.png"
           alt="Search for Pokemon Button!">
@@ -44,9 +44,11 @@
   </section>
 
   <!-- Here is the main body within one major grid! -->
-  <section
-    class="grid grid-cols-1 lg:grid-cols-[minmax(460px,470px)_1fr] gap-x-9 gap-y-9 mb-8 place-content-center justify-self-center"
-    style="max-width: 1128px; margin: auto;">
+  <section class="flex justify-center">
+
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(400px,460px)] gap-9 mb-8 place-items-center" >
+
+   
     <!-- Display the main pokemon searched! -->
     <div class="white-box p-3 justify-self-center md:justify-start sm:min-w-100" style="height: 321px;">
       <div class="flex">
@@ -83,12 +85,11 @@
     <!-- Base Stats and Abilities -->
 
     <div class="lg:col-start-2 lg:row-start-1">
-      <div class="sub-grid gap-2">
+      <div class="grid sm:grid-cols-2 gap-2">
 
-
-        <div class="white-box p-3.5 justify-self-center md:justify-start" style="max-width: 302px;">
+        <div class="white-box p-3.5">
           <h2 class="pb-3">Base Stats</h2>
-          <div class="grid grid-cols-[minmax(200px, 1fr)]">
+          <div class="grid grid-cols-2">
             <div class="pe-1">
               <p class="text-end">HP: </p>
               <p class="text-end">Attack: </p>
@@ -109,7 +110,7 @@
           <h3 class="mt-18" id="totalPkStat">Total Stats: 325</h3>
         </div>
 
-        <div class="white-box justify-self-center md:justify-start lg:ms-auto p-3.5 md:min-w-75.5">
+        <div class="white-box p-3.5 ">
           <h2 class="pb-3">Abilities</h2>
           <p id="abilities">Hidden Ability: Anticipation Other Abilities: Run Away, Adaptability</p>
         </div>
@@ -118,7 +119,7 @@
     <!-- grid section for all moves and locations -->
     <div class="lg:col-start-2 max-w-[75%] lg:max-w-full justify-self-center">
       <!-- All Moves: -->
-      <div class="white-box mb-8 p-3.5 justify-self-center md:justify-start md:min-w-155.5" style="height: 278px;">
+      <div class="white-box mb-8 p-3.5 justify-self-center md:justify-start md:max-w-155.5" style="height: 278px;">
         <h2 class="pb-1">All Moves: </h2>
         <!-- Insert scrollable content! -->
         <p id="displayAllMoves" class="overflow-y-auto" style="height: 185px;">
@@ -127,7 +128,7 @@
       </div>
 
       <!-- Locations: -->
-      <div class="white-box p-3.5 justify-self-center md:justify-start md:min-w-155.5" style="height: 168px;">
+      <div class="white-box p-3.5 justify-self-center md:justify-start md:max-w-155.5" style="height: 168px;">
         <h2 class="pb-1.5">Locations: </h2>
         <p id="displayLocations" class="overflow-y-auto" style="height: 90px;">castelia city area, kalos route 10 area,
           celadon city celadon
@@ -135,7 +136,7 @@
           6 south, paniola ranch area.</p>
       </div>
     </div>
-
+     </div>
   </section>
 
   <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>

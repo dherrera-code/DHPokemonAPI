@@ -11,14 +11,6 @@ body {
     font-variation-settings:
         "wdth" 100;
 }
-/* @media (min-width: 800px){
-    .search-bar{
-        min-width: none;
-    }
-}
-.search-bar {
-    min-width: 1128px;
-} */
 
 form {
     color: #555;
@@ -33,6 +25,12 @@ form {
 .iconBtn {
     min-width: 48px;
     max-height: 48px;
+}
+@media screen and (max-width: 640px){
+    .iconBtn{
+        min-width: 40px;
+        max-height: 40px;
+    }
 }
 
 .white-box {
@@ -63,8 +61,4 @@ form {
     grid-template-columns: 470px 1fr;
     max-width: 1128px;
 }
-.sub-grid{
-    display: grid;
-    grid-template-columns: minmax(216px,1fr) 1fr;
-    /* grid-template-columns: 200px 200px; */
-}
+
