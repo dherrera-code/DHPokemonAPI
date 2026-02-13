@@ -254,6 +254,9 @@
   .w-\[1fr\] {
     width: 1fr;
   }
+  .max-w-75 {
+    max-width: calc(var(--spacing) * 75);
+  }
   .max-w-\[1fr\] {
     max-width: 1fr;
   }
